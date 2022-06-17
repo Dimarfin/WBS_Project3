@@ -1,20 +1,20 @@
 import requests
 from datetime import datetime
 import pandas as pd
-import myconfig as cfg
+import config as cfg
 
 def get_weather():
-    schema="gans2"
-    host=cfg.get_data('DATABASE_HOST')
-    user=cfg.get_data('DATABASE_USER')
-    password=cfg.get_data('DATABASE_PASSWORD')
-    port=cfg.get_data('DATABASE_PORT')
+    schema="gans"
+    host=cfg.DATABASE_HOST
+    user=cfg.DATABASE_USER
+    password=cfg.DATABASE_PASSWORD
+    port=cfg.DATABASE_PORT
     con = f'mysql+pymysql://{user}:{password}@{host}:{port}/{schema}'
     
     cities_df = pd.read_sql('cities',con=con)
     
     cities = cities_df['city']
-    API_key = cfg.get_data('WEATHER_API_KEY')
+    API_key = cfg.WEATHER_API_KEY
     weather = pd.DataFrame(columns=['city_id',
                                     'time_utc',
                                     'local_time',

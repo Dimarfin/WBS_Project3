@@ -1,5 +1,6 @@
-CREATE DATABASE gans2;
-USE gans2;
+CREATE DATABASE gans;
+USE gans;
+
 
 CREATE TABLE IF NOT EXISTS cities (
 	city_id INT,
@@ -14,8 +15,7 @@ CREATE TABLE IF NOT EXISTS cities (
 );
 
 SELECT * FROM cities;
-
-DROP TABLE weathers;
+#DROP TABLE cities;
 
 CREATE TABLE IF NOT EXISTS weathers (
 	weather_id INT auto_increment,
@@ -34,6 +34,8 @@ CREATE TABLE IF NOT EXISTS weathers (
 );
 
 SELECT * FROM weathers;
+#DROP TABLE weathers;
+
 
 CREATE TABLE IF NOT EXISTS airports (
 	city_id INT,
@@ -47,11 +49,15 @@ CREATE TABLE IF NOT EXISTS airports (
 );
 
 SELECT * FROM airports;
+#DROP TABLE airports;
+
+
 
 CREATE TABLE IF NOT EXISTS flights (
 	flights_id INT auto_increment,
     icao CHAR(4),
     date CHAR(10),
+    hour_day CHAR(5),
     num_of_arriv INT,
     num_of_depart INT,
     PRIMARY KEY(flights_id),
@@ -59,6 +65,4 @@ CREATE TABLE IF NOT EXISTS flights (
 );
 
 SELECT * FROM flights;
-
-USE test_1;
-SELECT * FROM test_table;
+#DROP TABLE flights;
